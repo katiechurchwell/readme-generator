@@ -11,7 +11,7 @@ const questions = [
   {
     type: "input",
     name: "title",
-    message: "What is the title of your project?",
+    message: "What is the title of your project? (required)",
     validate: (titleInput) => {
       if (titleInput) {
         return true;
@@ -69,12 +69,28 @@ const questions = [
   {
     type: "input",
     name: "github",
-    message: "What is your github username?",
+    message: "What is your github username? (required)",
+    validate: (titleInput) => {
+      if (githubInput) {
+        return true;
+      } else {
+        console.log("Please enter your github username.");
+        return false;
+      }
+    },
   },
   {
     type: "input",
     name: "email",
-    message: "What is your email address?",
+    message: "What is your email address? (required)",
+    validate: (titleInput) => {
+      if (titleInput) {
+        return true;
+      } else {
+        console.log("Please enter your email address.");
+        return false;
+      }
+    },
   },
 ];
 
