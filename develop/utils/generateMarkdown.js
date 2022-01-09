@@ -50,7 +50,7 @@ function renderLicenseSection(license) {
     return `
   ## License
   This project is licensed under
-  ![${license.name}](${license.badgeUrl})(${license.licenseUrl})
+  [![${license.name}](${license.badgeUrl})](${license.licenseUrl})
   `;
   } else {
     return "";
