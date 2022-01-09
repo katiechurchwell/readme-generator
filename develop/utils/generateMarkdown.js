@@ -5,18 +5,50 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   //push all choices to an array and filter by template literal?
-  const licenses = [
-    "GNU AGPLv3",
-    "GNU GPLv3",
-    "GNU LGPLv3",
-    "Mozilla Public License 2.0",
-    "Apache License 2.0",
-    "MIT License",
-    "Boost Software License 1.0",
-    "The Unlicense",
-  ],
+  let licenses = [
+    {
+      name: "GNU AGPLv3",
+      badgeUrl: "https://img.shields.io/badge/License-AGPL_v3-blue.svg",
+      licenseUrl: "https://www.gnu.org/licenses/agpl-3.0"
+    },
+    {
+      name: "GNU GPLv3",
+      badgeUrl: "https://img.shields.io/badge/License-GPLv3-blue.svg",
+      licenseUrl: "https://www.gnu.org/licenses/gpl-3.0"
+    },
+    {
+      name: "GNU LGPLv3",
+      badgeUrl: "https://img.shields.io/badge/License-LGPL_v3-blue.svg",
+      licenseUrl: "https://www.gnu.org/licenses/lgpl-3.0"
+    },
+    {
+      name: "Mozilla Public License 2.0",
+      badgeUrl: "https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg",
+      licenseUrl: "https://opensource.org/licenses/MPL-2.0"
+    },
+    {
+      name: "Apache 2.0",
+      badgeUrl: "https://img.shields.io/badge/License-Apache_2.0-blue.svg",
+      licenseUrl: "https://opensource.org/licenses/Apache-2.0"
+    },
+    {
+      name: "MIT License",
+      badgeUrl: "https://img.shields.io/badge/License-MIT-yellow.svg",
+      licenseUrl: "https://opensource.org/licenses/MIT"
+    },
+    {
+      name: "Boost Software License 1.0",
+      badgeUrl: "https://img.shields.io/badge/License-Boost_1.0-lightblue.svg",
+      licenseUrl: "https://www.boost.org/LICENSE_1_0.txt"
+    },
+    {
+      name: "The Unlicense",
+      badgeUrl: "https://img.shields.io/badge/license-Unlicense-blue.svg",
+      licenseUrl: "http://unlicense.org/"
+    },
+  ];
 
-  const result = licenses.filter()
+  const result = licenses.filter();
 }
 
 // TODO: Create a function that returns the license link
@@ -25,7 +57,13 @@ function renderLicenseLink(license) {}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  return `
+  ## License
+  ![${data.license}](https://img.shields.io/badge/license-${data.license}-blue)
+  ${data.license}
+  `;
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -49,9 +87,6 @@ function generateMarkdown(data) {
 
   ## Credits
   ${data.credits}
-
-  ## License
-  ${data.license}
 
   ##Questions
   If you have any questions about this project, please open an issue or use the contact information below:
