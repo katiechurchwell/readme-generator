@@ -83,7 +83,7 @@ const questions = [
 function init() {
   inquirer.prompt(questions).then((answers) => {
     const markdown = generateMarkdown(answers);
-    fs.writeFile("./README.md", markdown, (err) => {
+    fs.writeFile("./dist/README.md", markdown, (err) => {
       if (err) {
         reject(err);
         return;
