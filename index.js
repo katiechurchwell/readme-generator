@@ -81,7 +81,8 @@ const questions = [
 // TODO: Create a function to write README file
 // TODO: Create a function to initialize app
 function init() {
-  inquirer.prompt(questions).then((answers) => {
+  inquirer.prompt(questions)
+  .then((answers) => {
     const markdown = generateMarkdown(answers);
     fs.writeFile("./dist/README.md", markdown, (err) => {
       if (err) {
