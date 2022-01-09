@@ -66,30 +66,19 @@ const questions = [
     message:
       "Go the extra mile and write tests for your application. Then provide examples on how to run them.",
   },
-  //include features?
   {
     type: "input",
     name: "github",
     message: "What is your github username?",
   },
+  {
+    type: "input",
+    name: "email",
+    message: "What is your email address?",
+  },
 ];
 
 // TODO: Create a function to write README file
-// writeFile(markdown) {
-//   return new Promise((resolve, reject) => {
-//     fs.writeFile("./README.md", markdown, (err) => {
-//       if (err) {
-//         reject(err);
-//         return;
-//       }
-//       resolve({
-//         ok: true,
-//         message: "README created!",
-//       });
-//     });
-//   });
-// };
-
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
