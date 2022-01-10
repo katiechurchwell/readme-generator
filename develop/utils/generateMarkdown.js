@@ -91,6 +91,7 @@ function generateTableOfContents(data) {
   delete contentsData.description;
   delete contentsData.github;
   delete contentsData.email;
+  delete contentsData.license;
   
   var contents = [];
 
@@ -105,29 +106,36 @@ function generateTableOfContents(data) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  //data is object
+  //pull license data from array based on user answer
   const licenseObject = licenseArray.find(({ name }) => name === data.license);
-  // console.log("generateMarkdown:" + licenseObject);
-  //object object
+
+  //dynamically generate section elements based on user answers
+  let contentsData = Object.assign({}, data); // make data copy to delete unneeded properties.
+  delete contentsData.license;
+  delete contentsData.github;
+  delete contentsData.email;
 
   var contents = [];
 
-  for (const property in data) {
-    if (data[property]) {
-      contents.push(`## ${property} \n ${data[property]} \n\n`); // \n adds new line in template literals
+  for (const property in contentsData) {
+    if (contentsData[property]) {
+      contents.push(`## ${property} \n ${contentsData[property]} \n\n`); // \n adds new line in template literals
     }
   }
 
   let tableOfContents = `## Table of Contents \n ${generateTableOfContents(data)}` + `* [questions](#questions) \n`;
 
+  //inserts table of contents at index 2
   contents.splice(2, 0, tableOfContents);
+  console.log(contents);
 
+  //add questions and license sections
   return contents.join('') + `
     
   ## Questions
-    If you have any questions about this project, please open an issue or use the contact information below:
-    * [${data.github}](https://www.github.com/${data.github})
-    * [${data.email}](mailto:${data.email})
+  If you have any questions about this project, please open an issue or use the contact information below:
+  * [${data.github}](https://www.github.com/${data.github})
+  * [${data.email}](mailto:${data.email})
       
     ${renderLicenseSection(licenseObject)}
     `;

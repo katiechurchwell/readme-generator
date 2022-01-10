@@ -1,39 +1,33 @@
-## [title] 
- as 
+## title 
+ Aimaloo 
 
-## [description] 
- s 
+## description 
+ affs 
 
 ## Table of Contents 
  * [installation](#installation) 
 * [usage](#usage) 
-* [license](#license) 
 * [credits](#credits) 
+* [tests](#tests) 
 * [questions](#questions) 
-## [installation] 
- s 
+## installation 
+ safsfsf 
 
-## [usage] 
- s 
+## usage 
+ saffssf 
 
-## [license] 
- GNU AGPLv3 
+## credits 
+ afsfas 
 
-## [credits] 
- s 
-
-## [github] 
- s 
-
-## [email] 
- s 
+## tests 
+ asfsf 
 
 
     
   ## Questions
-    If you have any questions about this project, please open an issue or use the contact information below:
-    * [s](https://www.github.com/s)
-    * [s](mailto:s)
+  If you have any questions about this project, please open an issue or use the contact information below:
+  * [sfasf](https://www.github.com/sfasf)
+  * [afssf](mailto:afssf)
       
     
   ## License
