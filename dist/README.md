@@ -1,33 +1,20 @@
-## title 
- Aimaloo 
+
+  [![GNU AGPLv3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
+  ## title 
+ fasfss 
 
 ## description 
- affs 
+ afsfs 
 
 ## Table of Contents 
- * [installation](#installation) 
-* [usage](#usage) 
-* [credits](#credits) 
-* [tests](#tests) 
-* [questions](#questions) 
-## installation 
- safsfsf 
-
-## usage 
- saffssf 
-
-## credits 
- afsfas 
-
-## tests 
- asfsf 
-
+ * [questions](#questions) 
 
     
   ## Questions
   If you have any questions about this project, please open an issue or use the contact information below:
-  * [sfasf](https://www.github.com/sfasf)
-  * [afssf](mailto:afssf)
+  * [saf](https://www.github.com/saf)
+  * [saf](mailto:saf)
       
     
   ## License

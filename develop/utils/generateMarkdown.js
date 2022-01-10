@@ -62,7 +62,7 @@ const licenseArray = [
 function renderLicenseBadge(license) {
   if (license.name != "None") {
     return `
-  [![${license.name}](${license.badgeUrl})](${license.licenseUrl})
+  [![${license.name}](${license.badgeUrl})](${license.licenseUrl})\n
   `;
   } else {
     return "";
@@ -106,10 +106,10 @@ function generateTableOfContents(data) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  //pull license data from array based on user answer
+  // pull license data from array based on user answer
   const licenseObject = licenseArray.find(({ name }) => name === data.license);
 
-  //dynamically generate section elements based on user answers
+  // dynamically generate section elements based on user answers
   let contentsData = Object.assign({}, data); // make data copy to delete unneeded properties.
   delete contentsData.license;
   delete contentsData.github;
@@ -123,14 +123,15 @@ function generateMarkdown(data) {
     }
   }
 
+
+
   let tableOfContents = `## Table of Contents \n ${generateTableOfContents(data)}` + `* [questions](#questions) \n`;
 
-  //inserts table of contents at index 2
+  // insert table of contents at index 2
   contents.splice(2, 0, tableOfContents);
-  console.log(contents);
 
-  //add questions and license sections
-  return contents.join('') + `
+  // add questions and license sections
+  return `${renderLicenseBadge(licenseObject)}` + contents.join('') + `
     
   ## Questions
   If you have any questions about this project, please open an issue or use the contact information below:
