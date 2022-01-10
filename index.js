@@ -25,7 +25,15 @@ const questions = [
     type: "input",
     name: "description",
     message:
-      "Please provide a description of your project and a link to the deployed application.",
+      "Please provide a description of your project and a link to the deployed application. (required)",
+    validate: (descriptionInput) => {
+      if (descriptionInput) {
+        return true;
+      } else {
+        console.log("Please enter a description for your project!");
+        return false;
+      }
+    },
   },
   {
     type: "input",
@@ -52,6 +60,7 @@ const questions = [
       "MIT License",
       "Boost Software License 1.0",
       "The Unlicense",
+      "None",
     ],
   },
   {
@@ -64,17 +73,17 @@ const questions = [
     type: "input",
     name: "tests",
     message:
-      "Go the extra mile and write tests for your application. Then provide examples on how to run them.",
+      "Are there tests for your application? Provide examples on how to run them.",
   },
   {
     type: "input",
     name: "github",
     message: "What is your github username? (required)",
-    validate: (titleInput) => {
+    validate: (githubInput) => {
       if (githubInput) {
         return true;
       } else {
-        console.log("Please enter your github username.");
+        console.log("Please enter your github username!");
         return false;
       }
     },
@@ -83,11 +92,11 @@ const questions = [
     type: "input",
     name: "email",
     message: "What is your email address? (required)",
-    validate: (titleInput) => {
-      if (titleInput) {
+    validate: (emailInput) => {
+      if (emailInput) {
         return true;
       } else {
-        console.log("Please enter your email address.");
+        console.log("Please enter your email address!");
         return false;
       }
     },
