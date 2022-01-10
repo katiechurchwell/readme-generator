@@ -134,7 +134,7 @@ function generateMarkdown(data) {
   // generate table of contents
   let tableOfContents =
     `## Table of Contents \n ${generateTableOfContents(data)}` +
-    `* [Questions](#questions) \n`;
+    `* [Questions](#questions) \n\n`;
 
   // insert table of contents at index 2
   contents.splice(2, 0, tableOfContents);
@@ -143,15 +143,11 @@ function generateMarkdown(data) {
   return (
     `${renderLicenseBadge(licenseObject)}` +
     contents.join("") +
-    `
-    
-  ## Questions
+    `## Questions
   If you have any questions about this project, please open an issue or use the contact information below:
   * [${data.github}](https://www.github.com/${data.github})
   * [${data.email}](mailto:${data.email})
-      
-    ${renderLicenseSection(licenseObject)}
-    `
+${renderLicenseSection(licenseObject)}`
   );
 }
 
