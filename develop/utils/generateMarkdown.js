@@ -110,23 +110,27 @@ function generateMarkdown(data) {
   // console.log("generateMarkdown:" + licenseObject);
   //object object
 
-  return `
-# ${data.title} ${renderLicenseBadge(licenseObject)}
+  var contents = [];
 
-## Description
-${data.description}
-  
-## Table of Contents
-${generateTableOfContents(data)}
-* [questions](#questions)
- 
-## Questions
-If you have any questions about this project, please open an issue or use the contact information below:
-* [${data.github}](https://www.github.com/${data.github})
-* [${data.email}](mailto:${data.email})
-  
-${renderLicenseSection(licenseObject)}
-`;
+  for (const property in data) {
+    if (data[property]) {
+      contents.push(`## ${property} \n ${data[property]} \n\n`); // \n adds new line in template literals
+    }
+  }
+
+  let tableOfContents = `## Table of Contents \n ${generateTableOfContents(data)}` + `* [questions](#questions) \n`;
+
+  contents.splice(2, 0, tableOfContents);
+
+  return contents.join('') + `
+    
+  ## Questions
+    If you have any questions about this project, please open an issue or use the contact information below:
+    * [${data.github}](https://www.github.com/${data.github})
+    * [${data.email}](mailto:${data.email})
+      
+    ${renderLicenseSection(licenseObject)}
+    `;
 }
 
 module.exports = generateMarkdown;
