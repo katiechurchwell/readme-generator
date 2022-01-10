@@ -71,7 +71,6 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-
 function renderLicenseSection(license) {
   if (license.name != "None") {
     return `
@@ -84,7 +83,6 @@ function renderLicenseSection(license) {
 }
 
 function generateTableOfContents(data) {
-
   let contentsData = Object.assign({}, data); // make data copy to delete unneeded properties.
 
   delete contentsData.title;
@@ -92,7 +90,7 @@ function generateTableOfContents(data) {
   delete contentsData.github;
   delete contentsData.email;
   delete contentsData.license;
-  
+
   var contents = [];
 
   for (const property in contentsData) {
@@ -101,7 +99,7 @@ function generateTableOfContents(data) {
     }
   }
 
-  return contents.join(''); // removes commas from array
+  return contents.join(""); // removes commas from array
 }
 
 // TODO: Create a function to generate markdown for README
@@ -119,19 +117,28 @@ function generateMarkdown(data) {
 
   for (const property in contentsData) {
     if (contentsData[property]) {
-      contents.push(`## ${property} \n ${contentsData[property]} \n\n`); // \n adds new line in template literals
+      contents.push(`${property} \n ${contentsData[property]}`); // \n adds new line in template literals
     }
   }
 
+  // section title capitalization
+  for (let i = 0; i < contents.length; i++) {
+    contents[i] = `## ` + contents[i].charAt(0).toUpperCase() + contents[i].substr(1) + `\n\n`;
+  }
 
-
-  let tableOfContents = `## Table of Contents \n ${generateTableOfContents(data)}` + `* [questions](#questions) \n`;
+  // generate table of contents
+  let tableOfContents =
+    `## Table of Contents \n ${generateTableOfContents(data)}` +
+    `* [questions](#questions) \n`;
 
   // insert table of contents at index 2
   contents.splice(2, 0, tableOfContents);
 
   // add questions and license sections
-  return `${renderLicenseBadge(licenseObject)}` + contents.join('') + `
+  return (
+    `${renderLicenseBadge(licenseObject)}` +
+    contents.join("") +
+    `
     
   ## Questions
   If you have any questions about this project, please open an issue or use the contact information below:
@@ -139,7 +146,8 @@ function generateMarkdown(data) {
   * [${data.email}](mailto:${data.email})
       
     ${renderLicenseSection(licenseObject)}
-    `;
+    `
+  );
 }
 
 module.exports = generateMarkdown;
