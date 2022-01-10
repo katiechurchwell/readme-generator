@@ -95,9 +95,14 @@ function generateTableOfContents(data) {
 
   for (const property in contentsData) {
     if (contentsData[property]) {
-      contents.push(`* [${property}](#${property}) \n`); // \n adds new line in template literals
+      contents.push(property);
     }
   }
+
+ // section title capitalization
+ for (let i = 0; i < contents.length; i++) {
+  contents[i] = `* [` + contents[i].charAt(0).toUpperCase() + contents[i].substr(1) + `](#${contents[i]})\n`;// \n adds new line in template literals
+}
 
   return contents.join(""); // removes commas from array
 }
@@ -129,7 +134,7 @@ function generateMarkdown(data) {
   // generate table of contents
   let tableOfContents =
     `## Table of Contents \n ${generateTableOfContents(data)}` +
-    `* [questions](#questions) \n`;
+    `* [Questions](#questions) \n`;
 
   // insert table of contents at index 2
   contents.splice(2, 0, tableOfContents);
