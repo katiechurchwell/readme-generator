@@ -1,6 +1,6 @@
 # Professional README Generator
-  [![project-languages-used](https://img.shields.io/github/languages/count/katiechurchwell/readme-generator?color=important)](https://github.com/katiechurchwell/Github-Readme-Template)
-  [![project-top-language](https://img.shields.io/github/languages/top/katiechurchwell/readme-generator?color=blueviolet)](https://github.com/katiechurchwell/Github-Readme-Template)
+  [![project-languages-used](https://img.shields.io/github/languages/count/katiechurchwell/readme-generator?color=important)](https://github.com/katiechurchwell/readme-generator)
+  [![project-top-language](https://img.shields.io/github/languages/top/katiechurchwell/readme-generator?color=blueviolet)](https://github.com/katiechurchwell/readme-generator)
 
 ## Description
 Generates a professional README through command-line prompts. Built with Node.js and [Inquirer.js](https://github.com/SBoudrias/Inquirer.js).
